@@ -5,6 +5,7 @@
     <title>Catalogue</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -16,7 +17,10 @@
             </div>
             <hr>
             <span class="text-center">Price: ${product.price} $</span>
-            <i class="fa fa-shopping-cart fa-lg"></i>
+            <form method="post" action="/shopping-cart" style="display: inline-block">
+                <input type="hidden" name="id" value="${product.id}">
+                <button class="btn btn-default" type="submit"><i class="fa fa-shopping-cart fa-lg"></i></button>
+            </form>
         </div>
     </c:forEach>
 </div>

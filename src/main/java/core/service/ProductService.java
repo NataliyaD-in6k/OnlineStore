@@ -18,12 +18,17 @@ public class ProductService {
     public List<Product> getProductsByCategoryId(Integer id) {
         List<Product> products = new ArrayList<Product>();
 
-        for(Product product: productDao.findAll()) {
-            if(product.getCategory().getId().equals(id)) {
+        for (Product product : productDao.findAll()) {
+            if (product.getCategory().getId().equals(id)) {
                 products.add(product);
             }
         }
 
         return products;
+    }
+
+    @Transactional
+    public Product getProductById(Integer id) {
+        return productDao.findById(id);
     }
 }
