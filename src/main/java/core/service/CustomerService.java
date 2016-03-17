@@ -13,12 +13,15 @@ public class CustomerService {
     @Autowired
     private CustomerDao customerDao;
 
-    @Transactional
-    public List<Customer> getAllCustomers() {
-        List<Customer> customers = customerDao.findAll();
-        for(Customer customer: customers) {
-            customer.getProducts().size();
-        }
-        return customers;
-    }
+//    @Transactional
+//    public List<Customer> getAllCustomers() {
+//        List<Customer> customers = customerDao.findAll();
+//        for(Customer customer: customers) {
+//            customer.getProducts().size();
+//        }
+//        return customers;
+//    }
+
+
+
 }

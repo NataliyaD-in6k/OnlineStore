@@ -16,10 +16,10 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping("")
-    public String showAllCustomers(ModelMap modelMap) {
-        modelMap.addAttribute("customers", customerService.getAllCustomers());
-        return "customer-list";
-    }
+//    @RequestMapping("")
+//    public String showAllCustomers(ModelMap modelMap) {
+//        modelMap.addAttribute("customers", customerService.getAllCustomers());
+//        return "customer-list";
+//    }
 
 }

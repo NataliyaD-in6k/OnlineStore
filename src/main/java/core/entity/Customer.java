@@ -12,11 +12,11 @@ public class Customer {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @ManyToMany
-    @JoinTable(name = "customer_product",
-            joinColumns = {@JoinColumn(name = "customer_id")},
-            inverseJoinColumns = {@JoinColumn(name = "product_id")})
-    private Map<Product, Integer> products;
+
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public Integer getId() {
         return id;
@@ -42,11 +42,5 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Map<Product, Integer> getProducts() {
-        return products;
-    }
 
-    public void setProducts(Map<Product, Integer> products) {
-        this.products = products;
-    }
 }

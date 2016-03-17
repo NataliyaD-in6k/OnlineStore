@@ -1,9 +1,13 @@
 a:hover{
     text-decoration: none;
 }
-.category-list{
+.category-list li{
 }
-
+h1{
+    padding: 30px;
+    border-radius: 15px;
+    background: #c0c0c0;
+}
 .category{
     padding: 5px;
     height: 40px;
