@@ -28,10 +28,10 @@ public class ShoppingCartController {
     CustomerService customerService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String showShoppingCart(ModelMap model, HttpServletRequest request){
+    public String showShoppingCart(ModelMap model, HttpServletRequest request) {
         Map<Product, Integer> products = new HashMap<Product, Integer>();
         Map<Integer, Integer> sessionProducts = getSafeCustomerProducts(request.getSession());
-        for(Integer pId : sessionProducts.keySet()){
+        for (Integer pId : sessionProducts.keySet()) {
             products.put(productService.getProductById(pId), sessionProducts.get(pId));
         }
         model.addAttribute("productsInCart", products);
@@ -44,19 +44,27 @@ public class ShoppingCartController {
         sessionProducts.put(id, 1);
         return "redirect:/shopping-cart";
     }
+
+    @RequestMapping(value = "change-amount", method = RequestMethod.POST)
+    public String changeAmount(HttpServletRequest request, @RequestParam("count") Integer count, @RequestParam("id") Integer id) {
+        Map<Integer, Integer> sessionProducts = getSafeCustomerProducts(request.getSession());
+        sessionProducts.put(id, count);
+        return "redirect:/shopping-cart";
+    }
+
+
     @RequestMapping(value = "delete/{id}")
-    public String delete(@PathVariable("id") Integer id, HttpServletRequest request){
+    public String delete(@PathVariable("id") Integer id, HttpServletRequest request) {
         Map<Integer, Integer> sessionProducts = getSafeCustomerProducts(request.getSession());
         sessionProducts.remove(id);
         return "redirect:/shopping-cart";
     }
 
 
-
-    private Map<Integer, Integer> getSafeCustomerProducts(HttpSession session){
-        if(session.getAttribute("customerProducts") == null) {
+    private Map<Integer, Integer> getSafeCustomerProducts(HttpSession session) {
+        if (session.getAttribute("customerProducts") == null) {
             session.setAttribute("customerProducts", new HashMap<Integer, Integer>());
         }
-        return (Map<Integer, Integer>)session.getAttribute("customerProducts");
+        return (Map<Integer, Integer>) session.getAttribute("customerProducts");
     }
 }

@@ -2,13 +2,12 @@ a:hover{
     text-decoration: none;
 }
 .category-list li{
+    margin: 5px;
 }
-h1{
-    padding: 30px;
-    border-radius: 15px;
-    background: #c0c0c0;
+.logo{
+    display: inline;
+    height: 39px;
 }
-.category{
-    padding: 5px;
-    height: 40px;
+.header-name{
+    margin: 0px;
 }
