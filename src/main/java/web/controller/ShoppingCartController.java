@@ -48,6 +48,7 @@ public class ShoppingCartController {
     @RequestMapping(value = "change-amount", method = RequestMethod.POST)
     public String changeAmount(HttpServletRequest request, @RequestParam("count") Integer count, @RequestParam("id") Integer id) {
         Map<Integer, Integer> sessionProducts = getSafeCustomerProducts(request.getSession());
+//        sessionProducts.remove(id);
         sessionProducts.put(id, count);
         return "redirect:/shopping-cart";
     }

@@ -18,6 +18,7 @@
 <div class="container">
     <div class="row well">
         <h1 class="header-name col-sm-10 text-primary">Universal online-store</h1>
+        <span class="glyphicon glyphicon-shopping-cart fa-lg"></span>
     </div>
 </div>
 </body>
