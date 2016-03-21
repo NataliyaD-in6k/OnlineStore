@@ -17,9 +17,12 @@
                     </div>
                     <hr>
                     <span>Price:$ ${product.price}</span>
-                    <form method="post" action="/shopping-cart" style="display: inline-block" class="text-right">
+                    <form method="post" action="/shopping-cart/change-amount" style="display: inline-block" class="text-right">
+                    <%--<form method="post" action="/shopping-cart" style="display: inline-block" class="text-right">--%>
                         <input type="hidden" name="id" value="${product.id}">
+                        <%--<input type="hidden" name="count" value="1" >--%>
                         <button class="btn btn-default glyphicon glyphicon-shopping-cart" type="submit"></button>
+                        <input type="number" name="count" value="1" style="width:60px;"/>
                     </form>
                 </div>
             </div>
